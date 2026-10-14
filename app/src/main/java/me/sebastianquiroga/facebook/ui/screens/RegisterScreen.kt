@@ -1,4 +1,4 @@
-package me.sebastianquiroga.facebook
+package me.sebastianquiroga.facebook.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -43,7 +43,7 @@ import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FacebookRegisterScreen(navController: NavController) {
+fun FacebookRegisterScreen(onClickBack : ()-> Unit ) {
     var firstName by remember { mutableStateOf("") }
     var lastName by remember { mutableStateOf("") }
     var emailOrPhone by remember { mutableStateOf("") }
@@ -59,9 +59,11 @@ fun FacebookRegisterScreen(navController: NavController) {
                 title = { },
                 navigationIcon = {
                     IconButton(onClick = {
-                        navController.popBackStack()
+                        onClickBack()
                     }) {
                         Text("Ir atras")
+
+
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
